@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="800px" height="500px" style="border: 2px solid rebeccapurple"></canvas>
+</body>
+</html>
+<script>
+    //VẼ HÌNH TRÒN
+    let canvas = document.getElementById('myCanvas');
+    let ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    ctx.arc(95, 50, 40, 0, 2 * Math.PI, false)
+    //VẼ HÌNH CHỮ NHẬT
+    ctx.stroke();
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(200, 200, 100, 100)
+    //VẼ TEXT thông qua fillText()
+    ctx.font = '50px TimeNewRoman';
+    ctx.fillStyle = 'red'
+    ctx.fillText('Hello World', 500, 300);
+    //VẼ IMAGE
+    const image = new Image();
+    image.onload = drawImageActualSize;
+    image.src = 'image/meo.jpg'
+    function drawImageActualSize() {
+        // canvas.width = this.naturalWidth;
+        // canvas.height = this.naturalHeight;
+        ctx.drawImage(this,300,0,100,100);
+    }
+</script>
+
